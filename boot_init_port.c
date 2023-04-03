@@ -71,7 +71,7 @@
 #define RDMCHCRB_SLM_256		(0x00000080U)	/* once in 256 clock cycle */
 #define RDMDPBASE_SEL_EXT		(0x00000001U)	/* External memory use */
 
-#ifdef RZG2_HIHOPE
+#if defined RZG2_HIHOPE || defined TQMARZG2X
 static void InitMODSEL(void);
 static void InitIPSR_G2M(void);
 static void InitGPSR_G2M(void);
@@ -79,7 +79,7 @@ static void InitPOCCTRL(void);
 static void InitDRVCTRL(void);
 static void InitPUD(void);
 static void InitPUEN(void);
-#endif /* RZG2_HIHOPE */
+#endif /* RZG2_HIHOPE || TQMARZG2X*/
 
 #ifdef RZG2_EK874
 static void InitMODSEL_G2E(void);
@@ -90,9 +90,9 @@ static void InitPUD_G2E(void);
 static void InitPUEN_G2E(void);
 #endif /* RZG2_EK874 */
 
-#ifdef RZG2_HIHOPE
+#if defined RZG2_HIHOPE || defined TQMARZG2X
 static void StartRtDma0_Descriptor(void);
-#endif /* RZG2_HIHOPE */
+#endif /* RZG2_HIHOPE || TQMARZG2X*/
 
 void InitPORT(void)
 {
@@ -104,7 +104,7 @@ void InitPORT(void)
 
 	switch (product)
 	{
-#ifdef RZG2_HIHOPE
+#if defined RZG2_HIHOPE || defined TQMARZG2X
 		case PRR_PRODUCT_G2M:
 			StartRtDma0_Descriptor();
 			/* no break */
@@ -118,7 +118,7 @@ void InitPORT(void)
 			InitPUD();
 			InitPUEN();
 		break;
-#endif /* RZG2_HIHOPE */
+#endif /* RZG2_HIHOPE || TQMARZG2X*/
 #ifdef RZG2_EK874
 		case PRR_PRODUCT_G2E:
 			InitMODSEL_G2E();
@@ -134,7 +134,7 @@ void InitPORT(void)
 	}
 }
 
-#ifdef RZG2_HIHOPE
+#if defined RZG2_HIHOPE || defined TQMARZG2X
 static void InitMODSEL(void)
 {
 	PFC_WR(PFC_MOD_SEL0,0x00000000);
@@ -175,7 +175,7 @@ static void InitPUD(void)
 static void InitPUEN(void)
 {
 }
-#endif /* RZG2_HIHOPE */
+#endif /* RZG2_HIHOPE || TQMARZG2X*/
 
 #ifdef RZG2_EK874
 static void InitMODSEL_G2E(void)
@@ -216,7 +216,7 @@ static void InitPUEN_G2E(void)
 }
 #endif /* RZG2_EK874*/
 
-#ifdef RZG2_HIHOPE
+#if defined RZG2_HIHOPE || defined TQMARZG2X
 static void StartRtDma0_Descriptor(void)
 {
 	uint32_t reg;
@@ -262,4 +262,4 @@ static void StartRtDma0_Descriptor(void)
 											);
 	}
 }
-#endif /* RZG2_HIHOPE */
+#endif /* RZG2_HIHOPE || TQMARZG2X*/

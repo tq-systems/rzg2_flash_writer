@@ -33,9 +33,9 @@ int32_t PutCharSCIF2(char outChar);
 int32_t GetCharSCIF2(char *inChar);
 void PowerOnScif2(void);
 void WaitPutScif2SendEnd(void);
-#ifdef RZG2_HIHOPE
+#if defined RZG2_HIHOPE || defined TQMARZG2X
 void InitScif2_SCIFCLK(void);
-#endif /* RZG2_HIHOPE */
+#endif /* RZG2_HIHOPE || TQMARZG2X*/
 #ifdef RZG2_EK874
 void InitScif2_SCIFCLK_G2E(void);
 #endif /* RZG2_EK874 */
