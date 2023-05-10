@@ -49,10 +49,10 @@ void InitCSCTRL(void)
 
 void InitCSWCR(void)
 {
-#ifdef RZG2_HIHOPE
+#if defined RZG2_HIHOPE || defined TQMARZG2X
 	*((volatile uint32_t*)LBSC_CSWCR0)=0x2A103320;
 	*((volatile uint32_t*)LBSC_CSWCR1)=0x2A103320;
-#endif /* RZG2_HIHOPE */
+#endif /* RZG2_HIHOPE || TQMARZG2X*/
 }
 
 void InitCSPWCR(void)

@@ -106,9 +106,9 @@ void	dgScifSpeedUp(void)
 void	dgScifSpeedUp_921600(void)
 {
 	uint16_t setData;
-#ifdef RZG2_HIHOPE
+#if defined RZG2_HIHOPE || defined TQMARZG2X
 	uint32_t product;
-#endif /* RZG2_HIHOPE */
+#endif /* RZG2_HIHOPE || TQMARZG2X*/
 #ifdef RZG2_EK874
 	uint32_t sscg;
 	uint32_t md;
@@ -121,10 +121,10 @@ void	dgScifSpeedUp_921600(void)
 	PutStr("Please change to 921.6Kbps baud rate setting of the terminal.",1);
 	WaitPutCharSendEnd();
 
-#ifdef RZG2_HIHOPE
+#if defined RZG2_HIHOPE || defined TQMARZG2X
 	product = *((volatile uint32_t*)PRR) & (PRR_PRODUCT_MASK | PRR_CUT_MASK);
 	setData =0x12;		/* 266.66MHz / (921600*16) = 18.08  @S3D1 */
-#endif /* RZG2_HIHOPE */
+#endif /* RZG2_HIHOPE || TQMARZG2X*/
 #ifdef RZG2_EK874
 	if (sscg == 0x0)
 	{			/* MD12=0 (SSCG off) ÅF S3D1C=266.6MHz */

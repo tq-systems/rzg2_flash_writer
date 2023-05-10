@@ -42,13 +42,13 @@ void InitScif(void)
 	product = *((volatile uint32_t*)PRR) & PRR_PRODUCT_MASK;
 	switch(product)
 	{
-#ifdef RZG2_HIHOPE
+#if defined RZG2_HIHOPE || defined TQMARZG2X
 		case PRR_PRODUCT_G2H:
 		case PRR_PRODUCT_G2M:
 		case PRR_PRODUCT_G2N:
 			InitScif2_SCIFCLK();
 		break;
-#endif /* RZG2_HIHOPE */
+#endif /* RZG2_HIHOPE || TQMARZG2X*/
 #ifdef RZG2_EK874
 		case PRR_PRODUCT_G2E:
 			InitScif2_SCIFCLK_G2E();

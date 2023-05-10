@@ -46,10 +46,10 @@ void StartTMU0(uint32_t tenmSec)
 
 	*((volatile uint16_t*)TMU_TCR0)  = 0x0000U;	/* TCNT_count_clock=(Input-Clock)/4 */
 
-#ifdef RZG2_HIHOPE
+#if defined RZG2_HIHOPE || defined TQMARZG2X
 	*((volatile uint32_t*)TMU_TCNT0) = 20833U;	/* [G2M/G2N](8.3333MHz/4)*20833=9.999880ms (-0.000012s/100s)	*/
 	*((volatile uint32_t*)TMU_TCOR0) = 20833U;	/* Input-Clock=CP-Clock=16.6666/2=8.3333MHz			*/
-#endif /* RZG2_HIHOPE */
+#endif /* RZG2_HIHOPE || TQMARZG2X*/
 #ifdef RZG2_EK874
 	*((volatile uint32_t*)TMU_TCNT0) = 60000U;	/* [G2E](24.0000MHz/4)*60000=10.00ms				*/
 	*((volatile uint32_t*)TMU_TCOR0) = 60000U;	/* Input-Clock=CP-Clock=48.0000/2=24.0000MHz			*/
@@ -81,10 +81,10 @@ void StartTMU0usec(uint32_t tenuSec)
 
 	*((volatile uint16_t*)TMU_TCR0)  = 0x0000U;	/* TCNT_count_clock=(Input-Clock)/4 */
 
-#ifdef RZG2_HIHOPE
+#if defined RZG2_HIHOPE || defined TQMARZG2X
 	*((volatile uint32_t*)TMU_TCNT0) = 21U;		/* [G2M/G2N](8.3333MHz/4)*21=10.08004us (+0.8004s/100s)	*/
 	*((volatile uint32_t*)TMU_TCOR0) = 21U;		/* Input-Clock=CP-Clock=16.6666/2=8.3333MHz		*/
-#endif /* RZG2_HIHOPE */
+#endif /* RZG2_HIHOPE || TQMARZG2X*/
 #ifdef RZG2_EK874
 	*((volatile uint32_t*)TMU_TCNT0) = 60U;		/* [G2E](24.0000MHz/4)*60=10.00us		*/
 	*((volatile uint32_t*)TMU_TCOR0) = 60U;		/* Input-Clock=CP-Clock=48.0000/2=24.0000MHz	*/

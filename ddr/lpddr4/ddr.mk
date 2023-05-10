@@ -31,5 +31,5 @@
 
 
 SRC_FILE += ddr/lpddr4/boot_init_dram.c ddr/lpddr4/boot_init_dram_config-preset.c
-# SRC_FILE += ddr/lpddr4/my_boot_dram_config.c
+SRC_FILE += ddr/lpddr4/tqmarzg2x_boot_dram_config.c
 SRC_FILE += ddr/dram_sub_func.c
